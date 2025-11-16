@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MixiMee - streaming music</title>
+    <title>MixiMee - 100% Online Music Streaming</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,102 +14,35 @@
         }
 
         body {
-            background: #f8f9fa;
-            color: #3c4043;
-            line-height: 1.5;
-        }
-
-        /* Google Play Header */
-        .play-header {
-            background: white;
-            border-bottom: 1px solid #dadce0;
-            padding: 12px 16px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-content {
-            display: flex;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .play-logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-right: 32px;
-        }
-
-        .play-logo-icon {
-            color: #5f6368;
-            font-size: 20px;
-        }
-
-        .play-logo-text {
-            font-size: 22px;
-            font-weight: 400;
-            color: #5f6368;
-        }
-
-        .search-bar {
-            flex: 1;
-            max-width: 600px;
-            position: relative;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 12px 16px 12px 48px;
-            border-radius: 24px;
-            border: 1px solid #dadce0;
-            background: #f1f3f4;
-            font-size: 16px;
-            outline: none;
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #5f6368;
-        }
-
-        .header-actions {
-            display: flex;
-            gap: 24px;
-            margin-left: auto;
-        }
-
-        .header-action {
-            color: #5f6368;
-            font-size: 14px;
-            cursor: pointer;
+            background: #0f0f0f;
+            color: #ffffff;
+            line-height: 1.6;
         }
 
         /* App Header */
         .app-header {
-            background: white;
-            padding: 24px 16px;
+            background: linear-gradient(135deg, #1DB954, #169c46);
+            padding: 20px 16px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .app-header-content {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            gap: 32px;
+            align-items: center;
+            gap: 16px;
         }
 
         .app-icon {
-            width: 120px;
-            height: 120px;
-            border-radius: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 1px 5px rgba(0,0,0,0.3);
             flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
 
         .app-icon img {
@@ -124,104 +57,128 @@
 
         .app-title {
             font-size: 20px;
-            font-weight: 400;
-            color: #3c4043;
+            font-weight: 600;
             margin-bottom: 4px;
         }
 
         .app-developer {
-            color: #1a73e8;
+            color: rgba(255,255,255,0.9);
             font-size: 14px;
-            margin-bottom: 12px;
-            cursor: pointer;
+            margin-bottom: 8px;
         }
 
         .app-rating {
             display: flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 12px;
         }
 
         .stars {
-            color: #f8c231;
+            color: #FFD700;
         }
 
         .rating-text {
-            color: #5f6368;
+            color: rgba(255,255,255,0.9);
             font-size: 14px;
-        }
-
-        .app-badges {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 20px;
-        }
-
-        .badge {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            color: #5f6368;
-            font-size: 14px;
-        }
-
-        .badge i {
-            font-size: 16px;
         }
 
         .install-btn {
-            background: #1a73e8;
+            background: rgba(255,255,255,0.2);
             color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 10px 24px;
+            border: 2px solid white;
+            border-radius: 20px;
+            padding: 10px 20px;
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
 
         .install-btn:hover {
-            background: #1669d6;
+            background: white;
+            color: #1DB954;
         }
 
         /* Main Content */
         .main-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 24px 16px;
+            padding: 20px 16px;
+        }
+
+        /* Features Section */
+        .features {
             display: grid;
-            grid-template-columns: 1fr 360px;
-            gap: 48px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .feature-card {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            color: #1DB954;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #1DB954;
+        }
+
+        .feature-desc {
+            color: #cccccc;
+            font-size: 14px;
+            line-height: 1.5;
         }
 
         /* Screenshots */
         .screenshots {
-            margin-bottom: 32px;
+            margin-bottom: 30px;
         }
 
         .section-title {
-            font-size: 18px;
-            font-weight: 400;
-            margin-bottom: 16px;
-            color: #3c4043;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-align: center;
         }
 
         .screenshot-scroll {
             display: flex;
-            gap: 12px;
+            gap: 15px;
             overflow-x: auto;
-            padding-bottom: 16px;
+            padding-bottom: 10px;
+            scrollbar-width: none;
+        }
+
+        .screenshot-scroll::-webkit-scrollbar {
+            display: none;
         }
 
         .screenshot {
-            width: 200px;
-            height: 355px;
-            border-radius: 12px;
+            width: 250px;
+            height: 445px;
+            border-radius: 16px;
             overflow: hidden;
             flex-shrink: 0;
-            box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            border: 2px solid #333;
         }
 
         .screenshot img {
@@ -230,283 +187,235 @@
             object-fit: cover;
         }
 
-        /* About App */
-        .about-app {
-            margin-bottom: 32px;
-        }
-
+        /* App Description */
         .app-description {
-            color: #3c4043;
-            font-size: 14px;
+            background: #1a1a1a;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .description-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1DB954;
+        }
+
+        .description-text {
+            color: #cccccc;
+            font-size: 16px;
             line-height: 1.6;
+            margin-bottom: 15px;
         }
 
-        .read-more {
-            color: #1a73e8;
-            font-size: 14px;
-            cursor: pointer;
-            margin-top: 8px;
+        .highlight {
+            color: #1DB954;
+            font-weight: 600;
         }
 
-        /* Additional Info */
-        .additional-info {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
+        /* Privacy Section */
+        .privacy-section {
+            background: #1a1a1a;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 4px solid #1DB954;
         }
 
-        .info-group {
-            margin-bottom: 24px;
-        }
-
-        .info-title {
-            font-size: 14px;
-            color: #5f6368;
-            margin-bottom: 8px;
-        }
-
-        .info-content {
-            font-size: 14px;
-            color: #3c4043;
-        }
-
-        /* What's New */
-        .whats-new {
-            margin-bottom: 32px;
-        }
-
-        .version {
-            font-size: 14px;
-            color: #5f6368;
-            margin-bottom: 12px;
-        }
-
-        .update-list {
-            list-style: none;
-        }
-
-        .update-item {
-            font-size: 14px;
-            color: #3c4043;
-            margin-bottom: 8px;
-            padding-left: 16px;
-            position: relative;
-        }
-
-        .update-item:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #5f6368;
-        }
-
-        /* Ratings & Reviews */
-        .ratings-section {
-            margin-bottom: 32px;
-        }
-
-        .ratings-overview {
+        .privacy-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1DB954;
             display: flex;
             align-items: center;
-            gap: 32px;
-            margin-bottom: 24px;
+            gap: 10px;
         }
 
-        .overall-rating {
+        .privacy-list {
+            list-style: none;
+            color: #cccccc;
+        }
+
+        .privacy-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .privacy-item:last-child {
+            border-bottom: none;
+        }
+
+        .privacy-icon {
+            color: #1DB954;
+            font-size: 16px;
+        }
+
+        /* App Details */
+        .app-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .detail-card {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 20px;
             text-align: center;
         }
 
-        .rating-number {
-            font-size: 48px;
-            font-weight: 300;
-            color: #3c4043;
+        .detail-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1DB954;
+            margin-bottom: 5px;
         }
 
-        .rating-stars-large {
-            color: #f8c231;
-            font-size: 20px;
-            margin: 8px 0;
-        }
-
-        .total-ratings {
-            color: #5f6368;
+        .detail-label {
+            color: #cccccc;
             font-size: 14px;
-        }
-
-        .rating-bars {
-            flex: 1;
-        }
-
-        .rating-bar {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 8px;
-        }
-
-        .bar-label {
-            font-size: 12px;
-            color: #5f6368;
-            width: 40px;
-        }
-
-        .bar-container {
-            flex: 1;
-            height: 8px;
-            background: #f1f3f4;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .bar-fill {
-            height: 100%;
-            background: #f8c231;
         }
 
         /* Reviews */
         .reviews {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
+            margin-bottom: 30px;
         }
 
-        .review {
-            background: white;
+        .review-card {
+            background: #1a1a1a;
             border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
         }
 
         .review-header {
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .reviewer-name {
-            font-weight: 500;
-            color: #3c4043;
+            font-weight: 600;
+            color: #ffffff;
         }
 
         .review-date {
-            color: #5f6368;
+            color: #888;
             font-size: 12px;
         }
 
         .review-rating {
-            color: #f8c231;
-            margin-bottom: 8px;
+            color: #FFD700;
+            margin-bottom: 10px;
         }
 
         .review-text {
-            color: #3c4043;
+            color: #cccccc;
             font-size: 14px;
             line-height: 1.5;
         }
 
-        /* Sidebar */
-        .sidebar {
-            position: sticky;
-            top: 80px;
-            height: fit-content;
-        }
-
-        .sidebar-card {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            margin-bottom: 24px;
-        }
-
-        .sidebar-title {
-            font-size: 16px;
-            font-weight: 500;
-            margin-bottom: 16px;
-            color: #3c4043;
-        }
-
-        .feature-list {
-            list-style: none;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-            font-size: 14px;
-            color: #3c4043;
-        }
-
-        .feature-icon {
-            color: #5f6368;
-            width: 20px;
-        }
-
-        /* Similar Apps */
-        .similar-apps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
-
-        .similar-app {
+        /* Download Section */
+        .download-section {
+            background: linear-gradient(135deg, #1DB954, #169c46);
+            border-radius: 20px;
+            padding: 30px;
             text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .download-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .download-subtitle {
+            font-size: 16px;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .download-btn {
+            background: white;
+            color: #1DB954;
+            border: none;
+            border-radius: 25px;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 700;
             cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         }
 
-        .similar-app-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            margin: 0 auto 8px;
-            overflow: hidden;
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
         }
 
-        .similar-app-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .similar-app-name {
-            font-size: 12px;
-            color: #3c4043;
-            line-height: 1.3;
+        .download-size {
+            margin-top: 15px;
+            font-size: 14px;
+            opacity: 0.8;
         }
 
         /* Footer */
         .footer {
-            background: white;
-            border-top: 1px solid #dadce0;
-            padding: 32px 16px;
-            margin-top: 48px;
+            background: #1a1a1a;
+            padding: 30px 16px;
+            text-align: center;
+            border-top: 1px solid #333;
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1DB954;
+            margin-bottom: 15px;
+        }
+
+        .footer-tagline {
+            color: #cccccc;
+            margin-bottom: 20px;
+            font-size: 16px;
         }
 
         .footer-links {
             display: flex;
-            gap: 24px;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
         }
 
         .footer-link {
-            color: #5f6368;
-            font-size: 12px;
-            cursor: pointer;
+            color: #888;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #1DB954;
         }
 
         .footer-copyright {
-            color: #5f6368;
+            color: #666;
             font-size: 12px;
+            margin-top: 20px;
         }
 
         /* Download Popup */
@@ -516,11 +425,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.8);
             display: none;
             align-items: center;
             justify-content: center;
             z-index: 1000;
+            padding: 20px;
         }
 
         .download-popup.active {
@@ -528,116 +438,135 @@
         }
 
         .popup-content {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
+            background: #1a1a1a;
+            border-radius: 20px;
+            padding: 30px;
             max-width: 400px;
-            width: 90%;
+            width: 100%;
             text-align: center;
+            border: 2px solid #1DB954;
         }
 
         .popup-icon {
-            font-size: 48px;
-            color: #1a73e8;
-            margin-bottom: 16px;
+            font-size: 60px;
+            color: #1DB954;
+            margin-bottom: 20px;
         }
 
         .popup-title {
-            font-size: 20px;
-            font-weight: 500;
-            margin-bottom: 8px;
-            color: #3c4043;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #ffffff;
         }
 
         .popup-text {
-            color: #5f6368;
-            margin-bottom: 24px;
+            color: #cccccc;
+            margin-bottom: 25px;
             line-height: 1.5;
         }
 
         .popup-actions {
             display: flex;
-            gap: 12px;
+            gap: 15px;
         }
 
         .popup-btn {
             flex: 1;
             padding: 12px;
             border: none;
-            border-radius: 4px;
-            font-size: 14px;
-            font-weight: 500;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
 
         .popup-cancel {
-            background: #f1f3f4;
-            color: #3c4043;
+            background: #333;
+            color: #ffffff;
+        }
+
+        .popup-cancel:hover {
+            background: #444;
         }
 
         .popup-download {
-            background: #1a73e8;
+            background: #1DB954;
             color: white;
         }
 
-        /* Responsive */
+        .popup-download:hover {
+            background: #1ed760;
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-            
             .app-header-content {
                 flex-direction: column;
                 text-align: center;
             }
-            
+
             .app-icon {
-                margin: 0 auto;
+                width: 80px;
+                height: 80px;
             }
-            
-            .additional-info {
+
+            .features {
                 grid-template-columns: 1fr;
             }
-            
-            .ratings-overview {
-                flex-direction: column;
-                text-align: center;
+
+            .screenshot {
+                width: 200px;
+                height: 355px;
             }
-            
-            .similar-apps {
+
+            .app-details {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
-            .footer-content {
+
+            .popup-actions {
                 flex-direction: column;
-                gap: 16px;
-                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .app-header {
+                padding: 15px;
+            }
+
+            .main-content {
+                padding: 15px;
+            }
+
+            .feature-card, .app-description, .privacy-section, .detail-card, .review-card {
+                padding: 15px;
+            }
+
+            .download-section {
+                padding: 20px;
+            }
+
+            .download-btn {
+                padding: 12px 30px;
+                font-size: 16px;
+            }
+
+            .screenshot {
+                width: 180px;
+                height: 320px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Google Play Header -->
-    <header class="play-header">
-        <div class="header-content">
-            <div class="play-logo">
-                <i class="fab fa-google-play play-logo-icon"></i>
-                <span class="play-logo-text">Play</span>
-            </div>
-            <div class="search-bar">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" class="search-input" placeholder="Search apps & games">
-            </div>
-            <div class="header-actions">
-                <div class="header-action">My apps</div>
-                <div class="header-action">Games</div>
-                <div class="header-action">Offers</div>
-            </div>
-        </div>
-    </header>
-
     <!-- App Header -->
-    <section class="app-header">
+    <header class="app-header">
         <div class="app-header-content">
             <div class="app-icon">
                 <img src="https://raw.githubusercontent.com/manas709c/Romantic/refs/heads/main/Miximee_music_app.png" alt="MixiMee Music">
@@ -653,257 +582,186 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <span class="rating-text">4.5</span>
-                    <span class="rating-text">•</span>
-                    <span class="rating-text">1M+ downloads</span>
+                    <span class="rating-text">4.5 • 1M+ downloads</span>
                 </div>
-                <div class="app-badges">
-                    <div class="badge">
-                        <i class="fas fa-download"></i>
-                        <span>1M+</span>
-                    </div>
-                    <div class="badge">
-                        <i class="fas fa-user-friends"></i>
-                        <span>Rated for 3+</span>
-                    </div>
-                    <div class="badge">
-                        <i class="fas fa-sd-card"></i>
-                        <span>05 MB</span>
-                    </div>
-                </div>
-                <button class="install-btn" onclick="showDownloadPopup()">Install</button>
             </div>
+            <button class="install-btn" onclick="showDownloadPopup()">Download APK</button>
         </div>
-    </section>
+    </header>
 
     <!-- Main Content -->
     <main class="main-content">
-        <div class="left-column">
-            <!-- Screenshots -->
-            <section class="screenshots">
-                <h2 class="section-title">Screenshots</h2>
-                <div class="screenshot-scroll">
-                    <div class="screenshot">
-                        <img src="https://raw.githubusercontent.com/manas709c/Romantic/refs/heads/main/Miximee_music_app.png" alt="Screenshot 1">
-                    </div>
-                    <div class="screenshot">
-                        <img src="https://raw.githubusercontent.com/manas709c/Romantic/refs/heads/main/Miximee_music_app.png" alt="Screenshot 2">
-                    </div>
-                    <div class="screenshot">
-                        <img src="https://raw.githubusercontent.com/manas709c/Romantic/refs/heads/main/Miximee_music_app.png" alt="Screenshot 3">
-                    </div>
+        <!-- Features -->
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-music"></i>
                 </div>
-            </section>
-
-            <!-- About App -->
-            <section class="about-app">
-                <h2 class="section-title">About this app</h2>
-                <div class="app-description">
-                    MixiMee Music is your ultimate premium music streaming app. Enjoy unlimited access to millions of songs, create personalized playlists, and discover new music tailored to your taste. High-quality audio streaming with no ads.
-                    <br><br>
-                    Features:
-                    <br>
-                    • Stream millions of songs
-                    <br>
-                    • Create custom playlists
-                    <br>
-                    • High-quality audio
-                    <br>
-                    • Offline listening
-                    <br>
-                    • Personalized recommendations
-                </div>
-                <div class="read-more">Read more</div>
-            </section>
-
-            <!-- Additional Info -->
-            <section class="additional-info">
-                <div class="info-group">
-                    <div class="info-title">Updated</div>
-                    <div class="info-content">November 16, 2025</div>
-                </div>
-                <div class="info-group">
-                    <div class="info-title">Size</div>
-                    <div class="info-content">05 MB</div>
-                </div>
-                <div class="info-group">
-                    <div class="info-title">Downloads</div>
-                    <div class="info-content">1,000,000+</div>
-                </div>
-                <div class="info-group">
-                    <div class="info-title">Current Version</div>
-                    <div class="info-content">2.1.5</div>
-                </div>
-                <div class="info-group">
-                    <div class="info-title">Requires Android</div>
-                    <div class="info-content">8.0 and up</div>
-                </div>
-                <div class="info-group">
-                    <div class="info-title">Content Rating</div>
-                    <div class="info-content">Rated for 3+</div>
-                </div>
-                <div class="info-group">
-                    <div class="info-title">Interactive Elements</div>
-                    <div class="info-content">Users Interact</div>
-                </div>
-                <div class="info-group">
-                    <div class="info-title">In-app Products</div>
-                    <div class="info-content">₹85.00 - ₹1,499.00 per item</div>
-                </div>
-            </section>
-
-            <!-- What's New -->
-            <section class="whats-new">
-                <h2 class="section-title">What's New</h2>
-                <div class="version">Version 2.1.5</div>
-                <ul class="update-list">
-                    <li class="update-item">Bug fixes and performance improvements</li>
-                    <li class="update-item">New playlist recommendations</li>
-                    <li class="update-item">Enhanced audio quality</li>
-                    <li class="update-item">Improved offline download feature</li>
-                </ul>
-            </section>
-
-            <!-- Ratings & Reviews -->
-            <section class="ratings-section">
-                <h2 class="section-title">Ratings & Reviews</h2>
-                <div class="ratings-overview">
-                    <div class="overall-rating">
-                        <div class="rating-number">4.5</div>
-                        <div class="rating-stars-large">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <div class="total-ratings">1.2M reviews</div>
-                    </div>
-                    <div class="rating-bars">
-                        <div class="rating-bar">
-                            <span class="bar-label">5</span>
-                            <div class="bar-container">
-                                <div class="bar-fill" style="width: 70%"></div>
-                            </div>
-                        </div>
-                        <div class="rating-bar">
-                            <span class="bar-label">4</span>
-                            <div class="bar-container">
-                                <div class="bar-fill" style="width: 20%"></div>
-                            </div>
-                        </div>
-                        <div class="rating-bar">
-                            <span class="bar-label">3</span>
-                            <div class="bar-container">
-                                <div class="bar-fill" style="width: 6%"></div>
-                            </div>
-                        </div>
-                        <div class="rating-bar">
-                            <span class="bar-label">2</span>
-                            <div class="bar-container">
-                                <div class="bar-fill" style="width: 2%"></div>
-                            </div>
-                        </div>
-                        <div class="rating-bar">
-                            <span class="bar-label">1</span>
-                            <div class="bar-container">
-                                <div class="bar-fill" style="width: 2%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="reviews">
-                    <div class="review">
-                        <div class="review-header">
-                            <div class="reviewer-name">Priya Sharma</div>
-                            <div class="review-date">October 15, 2025</div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="review-text">Amazing music app! The sound quality is excellent and the recommendations are always spot on. Love the offline feature!</div>
-                    </div>
-                    <div class="review">
-                        <div class="review-header">
-                            <div class="reviewer-name">Rahul Kumar</div>
-                            <div class="review-date">October 10, 2025</div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <div class="review-text">Great collection of songs and user-friendly interface. The only thing missing is more regional language content.</div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="sidebar-card">
-                <h3 class="sidebar-title">Additional Information</h3>
-                <ul class="feature-list">
-                    <li class="feature-item">
-                        <i class="fas fa-arrow-down feature-icon"></i>
-                        <span>Offline</span>
-                    </li>
-                    <li class="feature-item">
-                        <i class="fas fa-shield-alt feature-icon"></i>
-                        <span>Editor's Choice</span>
-                    </li>
-                    <li class="feature-item">
-                        <i class="fas fa-crown feature-icon"></i>
-                        <span>In-app purchases</span>
-                    </li>
-                    <li class="feature-item">
-                        <i class="fas fa-users feature-icon"></i>
-                        <span>Everyone</span>
-                    </li>
-                </ul>
+                <h3 class="feature-title">Unlimited Streaming</h3>
+                <p class="feature-desc">Stream millions of songs in high quality without any limits. Enjoy your favorite music anytime, anywhere.</p>
             </div>
-            <div class="sidebar-card">
-                <h3 class="sidebar-title">Similar Apps</h3>
-                <div class="similar-apps">
-                    <div class="similar-app">
-                        <div class="similar-app-icon">
-                            <img src="https://play-lh.googleusercontent.com/P2VMEenhpKhq9BX4yqiP1O-5d3vTYt9Q1F2HrWYUGS1_1W7H8x4L2dPx8Fuv6c0S2w" alt="Spotify">
-                        </div>
-                        <div class="similar-app-name">Spotify</div>
-                    </div>
-                    <div class="similar-app">
-                        <div class="similar-app-icon">
-                            <img src="https://play-lh.googleusercontent.com/YcS2e58_8Y1sCkE7bkC1a9T4S1h1kq7Z9N9P7Y7n9n9n9n9n9n9n9n9n9n9n9n9n9" alt="YouTube Music">
-                        </div>
-                        <div class="similar-app-name">YouTube Music</div>
-                    </div>
-                    <div class="similar-app">
-                        <div class="similar-app-icon">
-                            <img src="https://play-lh.googleusercontent.com/3a3-7h5X9-7-7-7-7-7-7-7-7-7-7-7-7-7-7-7-7-7-7-7-7-7-7-7" alt="Gaana">
-                        </div>
-                        <div class="similar-app-name">Gaana</div>
-                    </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3 class="feature-title">Instant Play</h3>
+                <p class="feature-desc">No waiting, no buffering. Start listening to your favorite tracks instantly with our optimized streaming.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="feature-title">100% Privacy</h3>
+                <p class="feature-desc">We don't collect any personal data. Your listening history remains completely private and anonymous.</p>
+            </div>
+        </section>
+
+        <!-- Screenshots -->
+        <section class="screenshots">
+            <h2 class="section-title">App Experience</h2>
+            <div class="screenshot-scroll">
+                <div class="screenshot">
+                    <img src="https://raw.githubusercontent.com/manas709c/Romantic/refs/heads/main/Miximee_music_app.png" alt="Player Screen">
+                </div>
+                <div class="screenshot">
+                    <img src="https://raw.githubusercontent.com/manas709c/Romantic/refs/heads/main/Miximee_music_app.png" alt="Playlist Screen">
+                </div>
+                <div class="screenshot">
+                    <img src="https://raw.githubusercontent.com/manas709c/Romantic/refs/heads/main/Miximee_music_app.png" alt="Discover Screen">
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- App Description -->
+        <section class="app-description">
+            <h2 class="description-title">About MixiMee Music</h2>
+            <p class="description-text">
+                <span class="highlight">MixiMee Music</span> is your ultimate online music streaming companion. 
+                Experience crystal-clear audio quality with our advanced streaming technology that works seamlessly on any network.
+            </p>
+            <p class="description-text">
+                Unlike other music apps, we respect your privacy. <span class="highlight">No registration required, 
+                no personal data collected, and no tracking</span>. Just pure music streaming enjoyment.
+            </p>
+            <p class="description-text">
+                Our intelligent recommendation system suggests music based on your listening patterns without storing 
+                any personal information on our servers.
+            </p>
+        </section>
+
+        <!-- Privacy Section -->
+        <section class="privacy-section">
+            <h2 class="privacy-title">
+                <i class="fas fa-user-shield"></i>
+                Your Privacy Matters
+            </h2>
+            <ul class="privacy-list">
+                <li class="privacy-item">
+                    <i class="fas fa-check privacy-icon"></i>
+                    <span>No account registration required</span>
+                </li>
+                <li class="privacy-item">
+                    <i class="fas fa-check privacy-icon"></i>
+                    <span>No personal information collected</span>
+                </li>
+                <li class="privacy-item">
+                    <i class="fas fa-check privacy-icon"></i>
+                    <span>No location tracking</span>
+                </li>
+                <li class="privacy-item">
+                    <i class="fas fa-check privacy-icon"></i>
+                    <span>No data shared with third parties</span>
+                </li>
+                <li class="privacy-item">
+                    <i class="fas fa-check privacy-icon"></i>
+                    <span>100% anonymous streaming</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- App Details -->
+        <section class="app-details">
+            <div class="detail-card">
+                <div class="detail-value">05 MB</div>
+                <div class="detail-label">App Size</div>
+            </div>
+            <div class="detail-card">
+                <div class="detail-value">1M+</div>
+                <div class="detail-label">Downloads</div>
+            </div>
+            <div class="detail-card">
+                <div class="detail-value">4.5/5</div>
+                <div class="detail-label">Rating</div>
+            </div>
+            <div class="detail-card">
+                <div class="detail-value">100%</div>
+                <div class="detail-label">Online</div>
+            </div>
+        </section>
+
+        <!-- User Reviews -->
+        <section class="reviews">
+            <h2 class="section-title">What Users Say</h2>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-name">Priya S.</div>
+                    <div class="review-date">2 days ago</div>
+                </div>
+                <div class="review-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="review-text">
+                    Amazing app! The sound quality is incredible and I love that I don't need to create an account. Truly privacy-focused!
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-name">Rahul K.</div>
+                    <div class="review-date">1 week ago</div>
+                </div>
+                <div class="review-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="review-text">
+                    Best music streaming app I've used. Works perfectly even on slow internet and no annoying ads!
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section class="download-section">
+            <h2 class="download-title">Ready to Start Streaming?</h2>
+            <p class="download-subtitle">Join 1 million+ users enjoying ad-free, private music streaming</p>
+            <button class="download-btn" onclick="showDownloadPopup()">
+                <i class="fas fa-download"></i>
+                Download Now
+            </button>
+            <div class="download-size">App Size: 05 MB • Android 8.0+</div>
+        </section>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
+            <div class="footer-logo">MixiMee</div>
+            <div class="footer-tagline">100% Online Music Streaming • 100% Privacy Protected</div>
             <div class="footer-links">
-                <div class="footer-link">User Policy</div>
-                <div class="footer-link">Developer Policy</div>
-                <div class="footer-link">About Google</div>
-                <div class="footer-link">Google Play</div>
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Terms of Service</a>
+                <a href="#" class="footer-link">Contact Support</a>
+                <a href="#" class="footer-link">About Us</a>
             </div>
-            <div class="footer-copyright">© 2025 Google LLC</div>
+            <div class="footer-copyright">
+                © 2025 MixiMee Inc. All rights reserved. No user data collected.
+            </div>
         </div>
     </footer>
 
@@ -911,13 +769,16 @@
     <div class="download-popup" id="downloadPopup">
         <div class="popup-content">
             <div class="popup-icon">
-                <i class="fas fa-download"></i>
+                <i class="fas fa-music"></i>
             </div>
             <h3 class="popup-title">Download MixiMee Music</h3>
-            <p class="popup-text">The APK file will be downloaded to your device. Make sure to allow installation from unknown sources in your Android settings.</p>
+            <p class="popup-text">
+                Your APK file (05 MB) will download immediately. 
+                Enable "Install from unknown sources" in Android Settings if needed.
+            </p>
             <div class="popup-actions">
                 <button class="popup-btn popup-cancel" onclick="hideDownloadPopup()">Cancel</button>
-                <button class="popup-btn popup-download" onclick="downloadAPK()">Download</button>
+                <button class="popup-btn popup-download" onclick="downloadAPK()">Download APK</button>
             </div>
         </div>
     </div>
@@ -938,7 +799,7 @@
             // Create invisible download link
             const downloadLink = document.createElement('a');
             downloadLink.href = apkUrl;
-            downloadLink.download = 'MixiMee.apk';
+            downloadLink.download = 'MixiMee_Music.apk';
             downloadLink.style.display = 'none';
             
             // Add to document and trigger click
@@ -950,12 +811,21 @@
             hideDownloadPopup();
             
             // Show success message
-            alert('MixiMee Music APK download started! Check your downloads folder.');
+            setTimeout(() => {
+                alert('MixiMee Music APK download started! Check your downloads folder.');
+            }, 500);
         }
 
         // Close popup when clicking outside
         document.getElementById('downloadPopup').addEventListener('click', function(e) {
             if (e.target === this) {
+                hideDownloadPopup();
+            }
+        });
+
+        // Close popup with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
                 hideDownloadPopup();
             }
         });
