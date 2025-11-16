@@ -1,492 +1,964 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 <head>
-    <meta charset='UTF-8'/>
-    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'/>
-    <title>MixiMee - Premium Music Streaming</title>
-    <link href='https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap' rel='stylesheet'/>
-    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' rel='stylesheet'/>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MixiMee - streaming music</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Play Store Style App Download Popup */
-        .playstore-popup {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+            color: #3c4043;
+            line-height: 1.5;
+        }
+
+        /* Google Play Header */
+        .play-header {
+            background: white;
+            border-bottom: 1px solid #dadce0;
+            padding: 12px 16px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .play-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-right: 32px;
+        }
+
+        .play-logo-icon {
+            color: #5f6368;
+            font-size: 20px;
+        }
+
+        .play-logo-text {
+            font-size: 22px;
+            font-weight: 400;
+            color: #5f6368;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 16px 12px 48px;
+            border-radius: 24px;
+            border: 1px solid #dadce0;
+            background: #f1f3f4;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #5f6368;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 24px;
+            margin-left: auto;
+        }
+
+        .header-action {
+            color: #5f6368;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* App Header */
+        .app-header {
+            background: white;
+            padding: 24px 16px;
+        }
+
+        .app-header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 32px;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+            flex-shrink: 0;
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .app-info {
+            flex: 1;
+        }
+
+        .app-title {
+            font-size: 20px;
+            font-weight: 400;
+            color: #3c4043;
+            margin-bottom: 4px;
+        }
+
+        .app-developer {
+            color: #1a73e8;
+            font-size: 14px;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+
+        .app-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .stars {
+            color: #f8c231;
+        }
+
+        .rating-text {
+            color: #5f6368;
+            font-size: 14px;
+        }
+
+        .app-badges {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #5f6368;
+            font-size: 14px;
+        }
+
+        .badge i {
+            font-size: 16px;
+        }
+
+        .install-btn {
+            background: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 24px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .install-btn:hover {
+            background: #1669d6;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 16px;
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 48px;
+        }
+
+        /* Screenshots */
+        .screenshots {
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 16px;
+            color: #3c4043;
+        }
+
+        .screenshot-scroll {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding-bottom: 16px;
+        }
+
+        .screenshot {
+            width: 200px;
+            height: 355px;
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* About App */
+        .about-app {
+            margin-bottom: 32px;
+        }
+
+        .app-description {
+            color: #3c4043;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            color: #1a73e8;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        /* Additional Info */
+        .additional-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .info-group {
+            margin-bottom: 24px;
+        }
+
+        .info-title {
+            font-size: 14px;
+            color: #5f6368;
+            margin-bottom: 8px;
+        }
+
+        .info-content {
+            font-size: 14px;
+            color: #3c4043;
+        }
+
+        /* What's New */
+        .whats-new {
+            margin-bottom: 32px;
+        }
+
+        .version {
+            font-size: 14px;
+            color: #5f6368;
+            margin-bottom: 12px;
+        }
+
+        .update-list {
+            list-style: none;
+        }
+
+        .update-item {
+            font-size: 14px;
+            color: #3c4043;
+            margin-bottom: 8px;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .update-item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #5f6368;
+        }
+
+        /* Ratings & Reviews */
+        .ratings-section {
+            margin-bottom: 32px;
+        }
+
+        .ratings-overview {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            margin-bottom: 24px;
+        }
+
+        .overall-rating {
+            text-align: center;
+        }
+
+        .rating-number {
+            font-size: 48px;
+            font-weight: 300;
+            color: #3c4043;
+        }
+
+        .rating-stars-large {
+            color: #f8c231;
+            font-size: 20px;
+            margin: 8px 0;
+        }
+
+        .total-ratings {
+            color: #5f6368;
+            font-size: 14px;
+        }
+
+        .rating-bars {
+            flex: 1;
+        }
+
+        .rating-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .bar-label {
+            font-size: 12px;
+            color: #5f6368;
+            width: 40px;
+        }
+
+        .bar-container {
+            flex: 1;
+            height: 8px;
+            background: #f1f3f4;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: #f8c231;
+        }
+
+        /* Reviews */
+        .reviews {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .review {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .reviewer-name {
+            font-weight: 500;
+            color: #3c4043;
+        }
+
+        .review-date {
+            color: #5f6368;
+            font-size: 12px;
+        }
+
+        .review-rating {
+            color: #f8c231;
+            margin-bottom: 8px;
+        }
+
+        .review-text {
+            color: #3c4043;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+        }
+
+        .sidebar-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 24px;
+        }
+
+        .sidebar-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: #3c4043;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            color: #3c4043;
+        }
+
+        .feature-icon {
+            color: #5f6368;
+            width: 20px;
+        }
+
+        /* Similar Apps */
+        .similar-apps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .similar-app {
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .similar-app-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            margin: 0 auto 8px;
+            overflow: hidden;
+        }
+
+        .similar-app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .similar-app-name {
+            font-size: 12px;
+            color: #3c4043;
+            line-height: 1.3;
+        }
+
+        /* Footer */
+        .footer {
+            background: white;
+            border-top: 1px solid #dadce0;
+            padding: 32px 16px;
+            margin-top: 48px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-link {
+            color: #5f6368;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .footer-copyright {
+            color: #5f6368;
+            font-size: 12px;
+        }
+
+        /* Download Popup */
+        .download-popup {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 3000;
+            background: rgba(0,0,0,0.5);
             display: none;
             align-items: center;
             justify-content: center;
-            animation: fadeIn 0.3s ease;
-            padding: 20px;
+            z-index: 1000;
         }
-        
-        .playstore-popup.active {
+
+        .download-popup.active {
             display: flex;
         }
-        
-        .playstore-container {
+
+        .popup-content {
             background: white;
-            border-radius: 16px;
-            width: 100%;
+            border-radius: 12px;
+            padding: 24px;
             max-width: 400px;
-            max-height: 85vh;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            animation: slideUp 0.4s ease;
-            position: relative;
-        }
-        
-        .playstore-header {
-            background: linear-gradient(135deg, #1DB954, #169c46);
-            padding: 20px;
+            width: 90%;
             text-align: center;
-            position: relative;
         }
-        
-        .playstore-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            cursor: pointer;
-            font-size: 1.1rem;
+
+        .popup-icon {
+            font-size: 48px;
+            color: #1a73e8;
+            margin-bottom: 16px;
         }
-        
-        .playstore-app-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            background: white;
-            margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            overflow: hidden;
-        }
-        
-        .playstore-app-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .playstore-app-name {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 5px;
-        }
-        
-        .playstore-developer {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 5px;
-        }
-        
-        .playstore-rating {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            color: white;
-            font-size: 0.9rem;
-        }
-        
-        .playstore-stars {
-            color: #FFD700;
-        }
-        
-        .playstore-body {
-            padding: 20px;
-            background: white;
-        }
-        
-        .playstore-screenshots {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            overflow-x: auto;
-            padding-bottom: 10px;
-        }
-        
-        .playstore-screenshot {
-            width: 120px;
-            height: 200px;
-            border-radius: 12px;
-            background: #f5f5f5;
-            flex-shrink: 0;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .playstore-screenshot img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .playstore-details {
-            margin-bottom: 20px;
-        }
-        
-        .playstore-detail-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
-        .playstore-detail-label {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .playstore-detail-value {
-            color: #333;
+
+        .popup-title {
+            font-size: 20px;
             font-weight: 500;
-            font-size: 0.9rem;
-        }
-        
-        .playstore-description {
-            color: #333;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-        
-        .playstore-permissions {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .playstore-permissions-title {
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #333;
-            font-size: 0.95rem;
-        }
-        
-        .playstore-permission-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
             margin-bottom: 8px;
-            font-size: 0.85rem;
-            color: #555;
+            color: #3c4043;
         }
-        
-        .playstore-permission-icon {
-            color: #1DB954;
-            font-size: 0.8rem;
+
+        .popup-text {
+            color: #5f6368;
+            margin-bottom: 24px;
+            line-height: 1.5;
         }
-        
-        .playstore-download-section {
-            background: #f8f9fa;
-            padding: 20px;
-            border-top: 1px solid #e0e0e0;
+
+        .popup-actions {
+            display: flex;
+            gap: 12px;
         }
-        
-        .playstore-download-btn {
-            background: #1DB954;
-            color: white;
+
+        .popup-btn {
+            flex: 1;
+            padding: 12px;
             border: none;
-            border-radius: 50px;
-            padding: 16px;
-            font-size: 1rem;
-            font-weight: 600;
-            width: 100%;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            box-shadow: 0 4px 12px rgba(29, 185, 84, 0.3);
         }
-        
-        .playstore-download-btn:hover {
-            background: #1ed760;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(29, 185, 84, 0.4);
+
+        .popup-cancel {
+            background: #f1f3f4;
+            color: #3c4043;
         }
-        
-        .playstore-download-btn:active {
-            transform: translateY(0);
+
+        .popup-download {
+            background: #1a73e8;
+            color: white;
         }
-        
-        .playstore-download-progress {
-            display: none;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .playstore-download-progress.active {
-            display: flex;
-        }
-        
-        .playstore-progress-bar {
-            background: #e0e0e0;
-            height: 6px;
-            border-radius: 3px;
-            overflow: hidden;
-        }
-        
-        .playstore-progress-fill {
-            height: 100%;
-            background: #1DB954;
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-        
-        .playstore-progress-text {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8rem;
-            color: #666;
-        }
-        
-        .playstore-download-complete {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .playstore-download-complete.active {
-            display: flex;
-        }
-        
-        .playstore-success-icon {
-            font-size: 3rem;
-            color: #1DB954;
-            margin-bottom: 15px;
-        }
-        
-        .playstore-success-text {
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        
-        .playstore-success-subtext {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .playstore-google-play-badge {
-            width: 150px;
-            margin-top: 10px;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes slideUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .app-header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .app-icon {
+                margin: 0 auto;
+            }
+            
+            .additional-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .ratings-overview {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .similar-apps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
         }
     </style>
 </head>
-
 <body>
-    <!-- Your existing content here -->
-    
-    <!-- NEW: Play Store Style App Download Popup -->
-    <div class="playstore-popup" id="playstorePopup">
-        <div class="playstore-container">
-            <div class="playstore-header">
-                <button class="playstore-close" onclick="closePlaystorePopup()">
-                    <i class="fas fa-times"></i>
-                </button>
-                <div class="playstore-app-icon">
-                    <img src="https://raw.githubusercontent.com/manas709c/Romantic/refs/heads/main/Miximee_music_app.png" alt="MixiMee App Icon">
-                </div>
-                <div class="playstore-app-name">MixiMee Music</div>
-                <div class="playstore-developer">MixiMee Inc.</div>
-                <div class="playstore-rating">
-                    <div class="playstore-stars">
+    <!-- Google Play Header -->
+    <header class="play-header">
+        <div class="header-content">
+            <div class="play-logo">
+                <i class="fab fa-google-play play-logo-icon"></i>
+                <span class="play-logo-text">Play</span>
+            </div>
+            <div class="search-bar">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search apps & games">
+            </div>
+            <div class="header-actions">
+                <div class="header-action">My apps</div>
+                <div class="header-action">Games</div>
+                <div class="header-action">Offers</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- App Header -->
+    <section class="app-header">
+        <div class="app-header-content">
+            <div class="app-icon">
+                <img src="https://raw.githubusercontent.com/manas709c/Romantic/refs/heads/main/Miximee_music_app.png" alt="MixiMee Music">
+            </div>
+            <div class="app-info">
+                <h1 class="app-title">MixiMee Music</h1>
+                <div class="app-developer">MixiMee Inc.</div>
+                <div class="app-rating">
+                    <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <span>4.5</span>
-                    <span>•</span>
-                    <span>1M+ downloads</span>
+                    <span class="rating-text">4.5</span>
+                    <span class="rating-text">•</span>
+                    <span class="rating-text">1M+ downloads</span>
+                </div>
+                <div class="app-badges">
+                    <div class="badge">
+                        <i class="fas fa-download"></i>
+                        <span>1M+</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-user-friends"></i>
+                        <span>Rated for 3+</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-sd-card"></i>
+                        <span>05 MB</span>
+                    </div>
+                </div>
+                <button class="install-btn" onclick="showDownloadPopup()">Install</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="left-column">
+            <!-- Screenshots -->
+            <section class="screenshots">
+                <h2 class="section-title">Screenshots</h2>
+                <div class="screenshot-scroll">
+                    <div class="screenshot">
+                        <img src="https://raw.githubusercontent.com/manas709c/Romantic/refs/heads/main/Miximee_music_app.png" alt="Screenshot 1">
+                    </div>
+                    <div class="screenshot">
+                        <img src="https://raw.githubusercontent.com/manas709c/Romantic/refs/heads/main/Miximee_music_app.png" alt="Screenshot 2">
+                    </div>
+                    <div class="screenshot">
+                        <img src="https://raw.githubusercontent.com/manas709c/Romantic/refs/heads/main/Miximee_music_app.png" alt="Screenshot 3">
+                    </div>
+                </div>
+            </section>
+
+            <!-- About App -->
+            <section class="about-app">
+                <h2 class="section-title">About this app</h2>
+                <div class="app-description">
+                    MixiMee Music is your ultimate premium music streaming app. Enjoy unlimited access to millions of songs, create personalized playlists, and discover new music tailored to your taste. High-quality audio streaming with no ads.
+                    <br><br>
+                    Features:
+                    <br>
+                    • Stream millions of songs
+                    <br>
+                    • Create custom playlists
+                    <br>
+                    • High-quality audio
+                    <br>
+                    • Offline listening
+                    <br>
+                    • Personalized recommendations
+                </div>
+                <div class="read-more">Read more</div>
+            </section>
+
+            <!-- Additional Info -->
+            <section class="additional-info">
+                <div class="info-group">
+                    <div class="info-title">Updated</div>
+                    <div class="info-content">November 16, 2025</div>
+                </div>
+                <div class="info-group">
+                    <div class="info-title">Size</div>
+                    <div class="info-content">05 MB</div>
+                </div>
+                <div class="info-group">
+                    <div class="info-title">Downloads</div>
+                    <div class="info-content">1,000,000+</div>
+                </div>
+                <div class="info-group">
+                    <div class="info-title">Current Version</div>
+                    <div class="info-content">2.1.5</div>
+                </div>
+                <div class="info-group">
+                    <div class="info-title">Requires Android</div>
+                    <div class="info-content">8.0 and up</div>
+                </div>
+                <div class="info-group">
+                    <div class="info-title">Content Rating</div>
+                    <div class="info-content">Rated for 3+</div>
+                </div>
+                <div class="info-group">
+                    <div class="info-title">Interactive Elements</div>
+                    <div class="info-content">Users Interact</div>
+                </div>
+                <div class="info-group">
+                    <div class="info-title">In-app Products</div>
+                    <div class="info-content">₹85.00 - ₹1,499.00 per item</div>
+                </div>
+            </section>
+
+            <!-- What's New -->
+            <section class="whats-new">
+                <h2 class="section-title">What's New</h2>
+                <div class="version">Version 2.1.5</div>
+                <ul class="update-list">
+                    <li class="update-item">Bug fixes and performance improvements</li>
+                    <li class="update-item">New playlist recommendations</li>
+                    <li class="update-item">Enhanced audio quality</li>
+                    <li class="update-item">Improved offline download feature</li>
+                </ul>
+            </section>
+
+            <!-- Ratings & Reviews -->
+            <section class="ratings-section">
+                <h2 class="section-title">Ratings & Reviews</h2>
+                <div class="ratings-overview">
+                    <div class="overall-rating">
+                        <div class="rating-number">4.5</div>
+                        <div class="rating-stars-large">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="total-ratings">1.2M reviews</div>
+                    </div>
+                    <div class="rating-bars">
+                        <div class="rating-bar">
+                            <span class="bar-label">5</span>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="bar-label">4</span>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 20%"></div>
+                            </div>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="bar-label">3</span>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 6%"></div>
+                            </div>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="bar-label">2</span>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 2%"></div>
+                            </div>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="bar-label">1</span>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 2%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reviews">
+                    <div class="review">
+                        <div class="review-header">
+                            <div class="reviewer-name">Priya Sharma</div>
+                            <div class="review-date">October 15, 2025</div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-text">Amazing music app! The sound quality is excellent and the recommendations are always spot on. Love the offline feature!</div>
+                    </div>
+                    <div class="review">
+                        <div class="review-header">
+                            <div class="reviewer-name">Rahul Kumar</div>
+                            <div class="review-date">October 10, 2025</div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="review-text">Great collection of songs and user-friendly interface. The only thing missing is more regional language content.</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">Additional Information</h3>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <i class="fas fa-arrow-down feature-icon"></i>
+                        <span>Offline</span>
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-shield-alt feature-icon"></i>
+                        <span>Editor's Choice</span>
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-crown feature-icon"></i>
+                        <span>In-app purchases</span>
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-users feature-icon"></i>
+                        <span>Everyone</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">Similar Apps</h3>
+                <div class="similar-apps">
+                    <div class="similar-app">
+                        <div class="similar-app-icon">
+                            <img src="https://play-lh.googleusercontent.com/P2VMEenhpKhq9BX4yqiP1O-5d3vTYt9Q1F2HrWYUGS1_1W7H8x4L2dPx8Fuv6c0S2w" alt="Spotify">
+                        </div>
+                        <div class="similar-app-name">Spotify</div>
+                    </div>
+                    <div class="similar-app">
+                        <div class="similar-app-icon">
+                            <img src="https://play-lh.googleusercontent.com/YcS2e58_8Y1sCkE7bkC1a9T4S1h1kq7Z9N9P7Y7n9n9n9n9n9n9n9n9n9n9n9n9n9" alt="YouTube Music">
+                        </div>
+                        <div class="similar-app-name">YouTube Music</div>
+                    </div>
+                    <div class="similar-app">
+                        <div class="similar-app-icon">
+                            <img src="https://play-lh.googleusercontent.com/3a3-7h5X9-7-7-7-7-7-7-7-7-7-7-7-7-7-7-7-7-7-7-7-7-7-7-7" alt="Gaana">
+                        </div>
+                        <div class="similar-app-name">Gaana</div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="playstore-body">
-                <div class="playstore-screenshots">
-                    <div class="playstore-screenshot">
-                        <img src="https://raw.githubusercontent.com/manas709c/Romantic/refs/heads/main/Miximee_music_app.png" alt="App Screenshot 1">
-                    </div>
-                    <div class="playstore-screenshot">
-                        <img src="https://raw.githubusercontent.com/manas709c/Romantic/refs/heads/main/Miximee_music_app.png" alt="App Screenshot 2">
-                    </div>
-                    <div class="playstore-screenshot">
-                        <img src="https://raw.githubusercontent.com/manas709c/Romantic/refs/heads/main/Miximee_music_app.png" alt="App Screenshot 3">
-                    </div>
-                </div>
-                
-                <div class="playstore-details">
-                    <div class="playstore-detail-item">
-                        <span class="playstore-detail-label">Size</span>
-                        <span class="playstore-detail-value">05 MB</span>
-                    </div>
-                    <div class="playstore-detail-item">
-                        <span class="playstore-detail-label">Downloads</span>
-                        <span class="playstore-detail-value">1,000,000+</span>
-                    </div>
-                    <div class="playstore-detail-item">
-                        <span class="playstore-detail-label">Version</span>
-                        <span class="playstore-detail-value">2.1.5</span>
-                    </div>
-                    <div class="playstore-detail-item">
-                        <span class="playstore-detail-label">Updated</span>
-                        <span class="playstore-detail-value">Nov 16, 2025</span>
-                    </div>
-                </div>
-                
-                <div class="playstore-description">
-                    MixiMee Music - Your ultimate premium music streaming app. Enjoy unlimited access to millions of songs, create personalized playlists, and discover new music tailored to your taste. High-quality audio streaming with no ads.
-                </div>
-                
-                <div class="playstore-permissions">
-                    <div class="playstore-permissions-title">This app has access to:</div>
-                    <div class="playstore-permission-item">
-                        <i class="fas fa-check playstore-permission-icon"></i>
-                        <span>Storage: Modify or delete the contents of your storage</span>
-                    </div>
-                    <div class="playstore-permission-item">
-                        <i class="fas fa-check playstore-permission-icon"></i>
-                        <span>Microphone: Record audio</span>
-                    </div>
-                    <div class="playstore-permission-item">
-                        <i class="fas fa-check playstore-permission-icon"></i>
-                        <span>Wi-Fi connection information: View Wi-Fi connections</span>
-                    </div>
-                </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <div class="footer-link">User Policy</div>
+                <div class="footer-link">Developer Policy</div>
+                <div class="footer-link">About Google</div>
+                <div class="footer-link">Google Play</div>
             </div>
-            
-            <div class="playstore-download-section">
-                <button class="playstore-download-btn" id="playstoreDownloadBtn" onclick="startPlaystoreDownload()">
-                    <i class="fas fa-download"></i>
-                    <span>Install</span>
-                </button>
-                
-                <div class="playstore-download-progress" id="playstoreDownloadProgress">
-                    <div class="playstore-progress-text">
-                        <span>Downloading...</span>
-                        <span id="playstoreProgressPercent">0%</span>
-                    </div>
-                    <div class="playstore-progress-bar">
-                        <div class="playstore-progress-fill" id="playstoreProgressFill"></div>
-                    </div>
-                </div>
-                
-                <div class="playstore-download-complete" id="playstoreDownloadComplete">
-                    <i class="fas fa-check-circle playstore-success-icon"></i>
-                    <div class="playstore-success-text">App installed successfully</div>
-                    <div class="playstore-success-subtext">MixiMee Music has been installed on your device</div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="playstore-google-play-badge">
-                </div>
+            <div class="footer-copyright">© 2025 Google LLC</div>
+        </div>
+    </footer>
+
+    <!-- Download Popup -->
+    <div class="download-popup" id="downloadPopup">
+        <div class="popup-content">
+            <div class="popup-icon">
+                <i class="fas fa-download"></i>
+            </div>
+            <h3 class="popup-title">Download MixiMee Music</h3>
+            <p class="popup-text">The APK file will be downloaded to your device. Make sure to allow installation from unknown sources in your Android settings.</p>
+            <div class="popup-actions">
+                <button class="popup-btn popup-cancel" onclick="hideDownloadPopup()">Cancel</button>
+                <button class="popup-btn popup-download" onclick="downloadAPK()">Download</button>
             </div>
         </div>
     </div>
 
     <script>
-        // Play Store Popup Functions
-        function showPlaystorePopup() {
-            document.getElementById('playstorePopup').classList.add('active');
+        function showDownloadPopup() {
+            document.getElementById('downloadPopup').classList.add('active');
         }
-        
-        function closePlaystorePopup() {
-            document.getElementById('playstorePopup').classList.remove('active');
+
+        function hideDownloadPopup() {
+            document.getElementById('downloadPopup').classList.remove('active');
         }
-        
-        function startPlaystoreDownload() {
-            const downloadBtn = document.getElementById('playstoreDownloadBtn');
-            const downloadProgress = document.getElementById('playstoreDownloadProgress');
-            const progressFill = document.getElementById('playstoreProgressFill');
-            const progressPercent = document.getElementById('playstoreProgressPercent');
+
+        function downloadAPK() {
+            // APK download link
+            const apkUrl = "https://github.com/manas709c/MixiMee-apk/raw/main/MixiMee.apk";
             
-            // Hide install button, show progress
-            downloadBtn.style.display = 'none';
-            downloadProgress.classList.add('active');
+            // Create invisible download link
+            const downloadLink = document.createElement('a');
+            downloadLink.href = apkUrl;
+            downloadLink.download = 'MixiMee.apk';
+            downloadLink.style.display = 'none';
             
-            // Simulate download progress
-            let progress = 0;
-            const interval = setInterval(() => {
-                progress += 2;
-                progressFill.style.width = progress + '%';
-                progressPercent.textContent = progress + '%';
-                
-                if (progress >= 100) {
-                    clearInterval(interval);
-                    setTimeout(completePlaystoreDownload, 500);
-                }
-            }, 100);
-        }
-        
-        function completePlaystoreDownload() {
-            const downloadProgress = document.getElementById('playstoreDownloadProgress');
-            const downloadComplete = document.getElementById('playstoreDownloadComplete');
+            // Add to document and trigger click
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
             
-            // Hide progress, show completion
-            downloadProgress.classList.remove('active');
-            downloadComplete.classList.add('active');
+            // Hide popup after download starts
+            hideDownloadPopup();
             
-            // Start actual APK download after showing completion
-            setTimeout(() => {
-                const apkUrl = "https://github.com/manas709c/Romantic/raw/refs/heads/main/MixiMee.apk";
-                const downloadLink = document.createElement('a');
-                downloadLink.href = apkUrl;
-                downloadLink.download = 'MixiMee.apk';
-                downloadLink.style.display = 'none';
-                document.body.appendChild(downloadLink);
-                downloadLink.click();
-                document.body.removeChild(downloadLink);
-                
-                // Close popup after download
-                setTimeout(() => {
-                    closePlaystorePopup();
-                    showNotification('MixiMee app downloaded successfully! Check your downloads folder.');
-                }, 2000);
-            }, 1500);
+            // Show success message
+            alert('MixiMee Music APK download started! Check your downloads folder.');
         }
-        
-        // Replace the existing showAppDownloadPopup function to use the new Play Store style
-        function showAppDownloadPopup() {
-            showPlaystorePopup();
-        }
-        
-        // Update the More section to use the new popup
-        function showAppDownloadModal() {
-            showPlaystorePopup();
-            closeMore();
-        }
+
+        // Close popup when clicking outside
+        document.getElementById('downloadPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideDownloadPopup();
+            }
+        });
     </script>
 </body>
 </html>
